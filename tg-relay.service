@@ -1,0 +1,16 @@
+[Unit]
+Description=Telegram → MAX Relay
+After=network.target
+
+[Service]
+Type=simple
+User=webmaster
+WorkingDirectory=/home/webmaster/tg-relay
+ExecStart=/home/webmaster/tg-relay/venv/bin/python relay.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

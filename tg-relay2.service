@@ -1,0 +1,22 @@
+[Unit]
+Description=Telegram to MAX Relay #2 (Varfolomeev)
+After=network-online.target xray.service
+Wants=network-online.target
+
+[Service]
+User=text
+WorkingDirectory=/home/text/tg-relay2
+Environment=PYTHONUNBUFFERED=1
+Environment=PROXY_TYPE=socks5
+Environment=PROXY_HOST=127.0.0.1
+Environment=PROXY_PORT=7891
+Environment=TG_API_ID=39502532
+Environment=TG_API_HASH=28f8491dd79ab1bdac190313ab16535c
+Environment=TG_SESSION=tg_session2
+Environment=MAX_TOKEN=f9LHodD0cOK6wnbQMyMa10jaOCJRyGuPHWmn-vlO9-_mgokRJt-CB4mlqSi4uzvR1ooBqG_kgzmqPgOjcM4r
+ExecStart=/home/text/tg-relay2/venv/bin/python relay.py
+Restart=always
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+Скрипт ждёт ввода номера телефона в интерактивном режиме. Нужно подключиться вручную:
+
+
+ssh user@<your-server>
+cd /home/user/tg-relay2
+PROXY_TYPE=socks5 PROXY_HOST=127.0.0.1 PROXY_PORT=7891 venv/bin/python auth2.py
+# ввести номер телефона второго аккаунта
+# ввести код из Telegram
+После авторизации запусти:
+
+
+sudo systemctl enable --now tg-relay2
